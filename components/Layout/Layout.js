@@ -1,3 +1,5 @@
+import Footer from 'components/Footer/Footer';
+import PageHeader from 'components/PageHeader/PageHeader';
 import Head from 'next/head';
 
 const Layout = (props) => {
@@ -25,7 +27,9 @@ const Layout = (props) => {
         <meta property='og:image' content='tile-wide.png' />
         <link rel='apple-touch-icon' href='apple-touch-icon.png' />
       </Head>
+      <PageHeader />
       <main>{children}</main>
+      <Footer />
     </>
   );
 };
