@@ -1,12 +1,12 @@
 import Head from 'next/head';
 
 const Layout = (props) => {
-  const { title, description, children } = props;
+  const { title, children } = props;
 
   const siteInfo = {
-    title: 'Snow Wind Boilerplate',
-    description: 'A NextJS + Tailwind starter kit',
-    keywords: 'nexts, tailwind, boilerplate',
+    title: 'Agrello & Fernandes',
+    description: 'Advocacia e Consultoria Jurídica',
+    keywords: 'advocacia, advogado, jurídico',
   };
 
   return (
