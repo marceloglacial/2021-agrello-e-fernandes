@@ -57,6 +57,12 @@
   .max-h-720 {
     max-height: 60rem;
   }
+
+  .list-cols-2 {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+  }
 }
 
 html {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 const Logo = (props) => {
   const styles = {
-    container: 'logo',
+    container: 'logo inline-block',
     logo: 'flex text-white  no-underline text-xl bottom-decoration',
   };
 

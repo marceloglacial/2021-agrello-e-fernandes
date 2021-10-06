@@ -1,6 +1,6 @@
 const Contact = (props) => {
   const styles = {
-    container: 'pt-24 pb-2 xl:py-48 min-h-360 relative overflow-hidden',
+    container: 'pt-24 pb-2 xl:py-48 relative overflow-hidden',
     grid: 'xl:grid xl:grid-cols-2 container p-6 xl:p-0 mx-auto',
     form: {
       container: 'xl:pr-12',
