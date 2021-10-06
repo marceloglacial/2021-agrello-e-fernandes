@@ -26,6 +26,15 @@
   a:hover:after {
     @apply w-full;
   }
+
+  input,
+  textarea {
+    @apply border-2 border-yellow-400 p-4 placeholder-black;
+  }
+
+  label {
+    @apply hidden;
+  }
 }
 
 @layer components {
@@ -34,6 +43,19 @@
   }
   .bottom-decoration::after {
     @apply bg-yellow-400 absolute left-0 -bottom-1 w-full h-0.5 transition-all ease-in-out duration-100;
+    content: '';
+  }
+
+  .min-h-360 {
+    min-height: 30rem;
+  }
+
+  .min-h-720 {
+    min-height: 60rem;
+  }
+
+  .max-h-720 {
+    max-height: 60rem;
   }
 }
 

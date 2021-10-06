@@ -1,4 +1,3 @@
-import Section from 'components/Section/Section';
 import fetcher from 'functions/fetcher';
 import useSWR from 'swr';
 
@@ -8,7 +7,7 @@ const Services = () => {
   if (!data) return <Section>loading...</Section>;
 
   return (
-    <Section title={'Serviços'} id={'servicos'}>
+    <section id={'servicos'}>
       <div className='grid grid-cols-4 gap-4'>
         {data?.map((item) => (
           <div
@@ -19,7 +18,7 @@ const Services = () => {
           </div>
         ))}
       </div>
-    </Section>
+    </section>
   );
 };
 

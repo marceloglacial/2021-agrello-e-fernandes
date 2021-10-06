@@ -1,55 +1,41 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import fetcher from 'functions/fetcher';
+import useSWR from 'swr';
 
 const HeaderNav = (props) => {
-  const menuItems = {
-    main: [
-      {
-        title: 'Missão',
-        link: '/missao',
-      },
-      {
-        title: 'Áreas de Atuação',
-        link: '/#servicos',
-      },
-      {
-        title: 'Quem Somos',
-        link: '/#quemsomos',
-      },
-      {
-        title: 'Contato',
-        link: '/#contato',
-      },
-    ],
-    social: [
-      {
-        title: '(88) 8888.8888',
-        link: 'tel: (88) 8888.8888',
-      },
-    ],
-  };
-
+  const { data, error } = useSWR('/api/navigation', fetcher);
   const [isOpen, setIsOpen] = useState(false);
+
+  if (error) return <div title={'Error'}>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+
   const styles = {
-    header: `flex flex-grow justify-end`,
+    header: `flex flex-grow justify-end xl:py-4`,
     menu: {
-      mobile: `absolute top-0 w-full h-screen bg-black bg-opacity-90 transition-all pt-6`,
-      open: isOpen ? `right-0` : `-right-full lg:right-0`,
-      desktop: `lg:relative lg:flex lg:h-auto lg:bg-transparent`,
+      header: `menu__header text-white bottom-decoration ml-8 p-0 mb-4 inline-block  xl:hidden`,
+      open: isOpen ? `right-0` : `-right-full xl:right-0`,
+      mobile: `absolute xl:relative top-0 w-full h-screen bg-black bg-opacity-90 transition-all pt-6 xl:pt-0`,
+      desktop: `xl:relative xl:flex xl:h-auto xl:bg-transparent`,
+      primary: 'xl:flex list-none mx-auto',
+      primaryItem: 'py-2 xl:px-8 xl:p-0 m-0',
+      primaryItemLink: 'text-xl text-white',
+      secondary: 'flex list-none',
+      secondaryItem: 'py-2 xl:px-2  xl:p-0',
+      secondaryItemLink: 'text-xl',
     },
     button: {
       mobile: `ml-auto z-50 cursor-pointer`,
-      desktop: `lg:hidden`,
+      desktop: `xl:hidden`,
+      icon: 'w-8 h-8 text-yellow-400',
     },
   };
 
   return (
-    <div className={`nav-header ${styles.header}`}>
-      <div
-        className={`nav-button ${styles.button.mobile} ${styles.button.desktop}`}
-      >
+    <div className={styles.header}>
+      <div className={`${styles.button.mobile} ${styles.button.desktop}`}>
         <svg
-          className='w-8 h-8 text-yellow-400'
+          className={styles.button.icon}
           x-show='!showMenu'
           fill='none'
           strokeLinecap='round'
@@ -63,17 +49,15 @@ const HeaderNav = (props) => {
         </svg>
       </div>
       <div
-        className={`nav-header__menu ${styles.menu.mobile} ${styles.menu.open} ${styles.menu.desktop}`}
+        className={`${styles.menu.mobile} ${styles.menu.open} ${styles.menu.desktop}`}
       >
-        {isOpen && (
-          <h2 className={`text-white  bottom-decoration pl-8`}>Menu</h2>
-        )}
-        <ul className='lg:flex list-none mx-auto'>
-          {menuItems.main.map((item, index) => (
-            <li key={index} className='py-2 lg:px-8'>
+        {isOpen && <h2 className={styles.menu.header}>Menu</h2>}
+        <ul className={styles.menu.primary}>
+          {data.main.map((item, index) => (
+            <li key={index} className={styles.menu.primaryItem}>
               <Link href={item.link}>
                 <a
-                  className='text-xl text-white'
+                  className={styles.menu.primaryItemLink}
                   onClick={() => setIsOpen(!isOpen)}
                 >
                   {item.title}
@@ -82,11 +66,14 @@ const HeaderNav = (props) => {
             </li>
           ))}
         </ul>
-        <ul className='flex list-none'>
-          {menuItems.social.map((item, index) => (
-            <li key={index} className='py-2 lg:px-2'>
+        <ul className={styles.menu.secondary}>
+          {data.social.map((item, index) => (
+            <li key={index} className={styles.menu.secondaryItem}>
               <Link href={item.link}>
-                <a className='text-xl' onClick={() => setIsOpen(!isOpen)}>
+                <a
+                  className={styles.menu.secondaryItemLink}
+                  onClick={() => setIsOpen(!isOpen)}
+                >
                   {item.title}
                 </a>
               </Link>
