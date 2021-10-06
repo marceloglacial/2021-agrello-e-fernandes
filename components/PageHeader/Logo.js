@@ -1,11 +1,14 @@
 import Link from 'next/link';
 const Logo = (props) => {
+  const styles = {
+    container: 'logo',
+    logo: 'flex text-white  no-underline text-xl bottom-decoration',
+  };
+
   return (
-    <div className='flex w-64'>
+    <div className={styles.container}>
       <Link href='/'>
-        <a className='flex text-white  no-underline text-xl bottom-decoration'>
-          Agrello & Fernandes
-        </a>
+        <a className={styles.logo}>Agrello & Fernandes</a>
       </Link>
     </div>
   );

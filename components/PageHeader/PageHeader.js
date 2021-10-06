@@ -3,6 +3,8 @@ import HeaderNav from './HeaderNav';
 import Logo from './Logo';
 
 const PageHeader = (props) => {
+  // Scroll detection
+  // ==============================================
   const [scrolling, setScrolling] = useState(false);
   const [scrollTop, setScrollTop] = useState(0);
 
@@ -23,17 +25,20 @@ const PageHeader = (props) => {
     return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
 
+  // Styles
+  // ==============================================
   const styles = {
     default: `page-header fixed z-50 flex items-center w-full bg-black transition-all ease-in-out duration-500`,
     mobile: `p-6`,
     desktop: `lg:p-8`,
+    scroll: scrollTop >= 200 ? `bg-opacity-90 shadow-lg` : 'bg-opacity-0',
   };
 
+  // Return
+  // ==============================================
   return (
     <header
-      className={`${styles.default} ${styles.mobile} ${styles.desktop} ${
-        scrollTop >= 200 ? `bg-opacity-90 shadow-lg` : 'bg-opacity-0'
-      }`}
+      className={`${styles.default} ${styles.mobile} ${styles.desktop} ${styles.scroll}`}
     >
       <Logo />
       <HeaderNav />

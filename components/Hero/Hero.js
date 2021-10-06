@@ -1,10 +1,12 @@
 const Hero = (props) => {
-  const { title, description, buttons, video } = props;
+  const { title, description, video } = props;
   const styles = {
     container: `hero relative flex items-center justify-center text-white overflow-hidden min-h-50`,
     content:
       'hero__content absolute w-full h-full bg-black bg-opacity-60 flex items-center justify-center',
     header: `hero__header p-6 container`,
+    headerTitle: 'pb-2',
+    headerDesription: 'text-xl',
     video: `w-screen h-screen max-h-720 object-cover`,
   };
 
@@ -12,8 +14,10 @@ const Hero = (props) => {
     <div className={styles.container}>
       <div className={styles.content}>
         <header className={styles.header}>
-          {title && <h1 className='pb-2'>{title}</h1>}
-          {description && <p className='text-xl'>{description}</p>}
+          {title && <h1 className={styles.headerTitle}>{title}</h1>}
+          {description && (
+            <p className={styles.headerDesription}>{description}</p>
+          )}
         </header>
       </div>
       {video && (
