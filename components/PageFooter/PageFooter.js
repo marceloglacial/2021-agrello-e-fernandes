@@ -1,6 +1,6 @@
-const Footer = (props) => {
+const PageFooter = (props) => {
   return (
-    <footer>
+    <footer className='footer w-screen h-screen bg-gray-600'>
       <ul>
         <li>Link</li>
         <li>Link</li>
@@ -10,4 +10,4 @@ const Footer = (props) => {
     </footer>
   );
 };
-export default Footer;
+export default PageFooter;

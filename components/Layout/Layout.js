@@ -1,4 +1,4 @@
-import Footer from 'components/Footer/Footer';
+import PageFooter from 'components/PageFooter/PageFooter';
 import PageHeader from 'components/PageHeader/PageHeader';
 import Head from 'next/head';
 
@@ -29,7 +29,6 @@ const Layout = (props) => {
       </Head>
       <PageHeader />
       <main>{children}</main>
-      <Footer />
     </>
   );
 };

@@ -4,7 +4,10 @@ import useSWR from 'swr';
 const SerivcesWrapper = (props) => {
   const { children, title } = props;
   return (
-    <section id='servicos' className='services container mx-auto'>
+    <section
+      id='servicos'
+      className='services container mx-auto h-screen pt-32'
+    >
       {title && <h2>{title}</h2>}
       {children}
     </section>
@@ -18,12 +21,11 @@ const Services = () => {
   if (!data) return <SerivcesWrapper>loading...</SerivcesWrapper>;
 
   return (
-    <SerivcesWrapper>
-      <h2>Serviços</h2>
+    <SerivcesWrapper title={'Serviços'}>
       <div className='grid grid-cols-4 gap-4'>
-        {data?.map((item, index) => (
+        {data?.map((item) => (
           <div
-            key={index}
+            key={item.id}
             className={`bg-gray-500 rounded-lg p-4 shadow-lg text-white`}
           >
             {item.title}

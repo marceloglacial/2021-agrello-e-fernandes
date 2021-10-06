@@ -29,12 +29,12 @@ const HeaderNav = (props) => {
   };
 
   return (
-    <div className='flex w-full'>
+    <div className='nav-header flex w-full'>
       <ul className='flex list-none mx-auto'>
         {menuItems.main.map((item, index) => (
-          <li key={index} className='p-2'>
+          <li key={index} className='py-2 px-8'>
             <Link href={item.link}>
-              <a className='text-white'>{item.title}</a>
+              <a className='text-white no-underline text-xl'>{item.title}</a>
             </Link>
           </li>
         ))}
@@ -43,7 +43,7 @@ const HeaderNav = (props) => {
         {menuItems.social.map((item, index) => (
           <li key={index} className='p-2'>
             <Link href={item.link}>
-              <a className='text-white'>{item.title}</a>
+              <a className='text-white  no-underline text-xl'>{item.title}</a>
             </Link>
           </li>
         ))}

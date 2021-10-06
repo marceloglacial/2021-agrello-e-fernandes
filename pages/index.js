@@ -6,13 +6,14 @@ export default function Home() {
   const siteProps = {
     title: 'Agrello & Fernandes',
     description: 'Advocacia e Consultoria Jurídica',
-    background:
-      'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80',
+    video:
+      'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469810/agrelloefernandes/pexels-ekaterina-bolovtsova-6101151_jkuyq0.mp4',
+    // 'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061570_wxlmyz.mp4'
+    // 'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061667_gmkut6.mp4'
   };
   return (
     <Layout>
       <Hero {...siteProps} />
-      <Services />
     </Layout>
   );
 }
