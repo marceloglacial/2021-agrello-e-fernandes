@@ -34,7 +34,7 @@ const HeaderNav = (props) => {
     header: `flex flex-grow justify-end`,
     menu: {
       mobile: `absolute top-0 w-full h-screen bg-black bg-opacity-90 transition-all pt-6`,
-      open: isOpen ? `right-0` : `-right-full`,
+      open: isOpen ? `right-0` : `-right-full lg:right-0`,
       desktop: `lg:relative lg:flex lg:h-auto lg:bg-transparent`,
     },
     button: {

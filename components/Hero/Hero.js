@@ -6,7 +6,7 @@ const Hero = (props) => {
       className={`hero relative flex items-center justify-center text-white overflow-hidden min-h-50`}
     >
       <div className='hero__content absolute w-full h-full bg-black bg-opacity-60 flex items-center justify-center'>
-        <header className='hero__header  container z-10'>
+        <header className='hero__header p-6 container'>
           {title && <h1 className='pb-2'>{title}</h1>}
           {description && <p className='text-xl'>{description}</p>}
         </header>
