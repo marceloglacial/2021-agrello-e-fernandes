@@ -1,5 +1,5 @@
+import Contact from 'components/Contact/Contact';
 import Hero from 'components/Hero/Hero';
-import Services from 'components/Services/Services';
 
 export default function Home() {
   const heroProps = {
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Hero {...heroProps} />
-      {/* <Services /> */}
+      <Contact />
     </>
   );
 }

@@ -1,4 +1,4 @@
 const PageFooter = (props) => {
-  return <footer className='footer w-screen bg-gray-600'></footer>;
+  return <footer className='footer w-screen bg-black min-h-360'></footer>;
 };
 export default PageFooter;
