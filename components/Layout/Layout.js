@@ -29,6 +29,7 @@ const Layout = (props) => {
       </Head>
       <PageHeader />
       <main>{children}</main>
+      <PageFooter />
     </>
   );
 };

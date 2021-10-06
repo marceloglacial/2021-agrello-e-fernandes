@@ -3,7 +3,7 @@ const Logo = (props) => {
   return (
     <div className='flex w-64'>
       <Link href='/'>
-        <a className='flex text-white  no-underline text-xl'>
+        <a className='flex text-white  no-underline text-xl bottom-decoration'>
           Agrello & Fernandes
         </a>
       </Link>

@@ -1,27 +1,14 @@
+import Section from 'components/Section/Section';
 import fetcher from 'functions/fetcher';
 import useSWR from 'swr';
 
-const SerivcesWrapper = (props) => {
-  const { children, title } = props;
-  return (
-    <section
-      id='servicos'
-      className='services container mx-auto h-screen pt-32'
-    >
-      {title && <h2>{title}</h2>}
-      {children}
-    </section>
-  );
-};
-
 const Services = () => {
   const { data, error } = useSWR('/api/services', fetcher);
-  if (error)
-    return <SerivcesWrapper title={'Error'}>failed to load</SerivcesWrapper>;
-  if (!data) return <SerivcesWrapper>loading...</SerivcesWrapper>;
+  if (error) return <Section title={'Error'}>failed to load</Section>;
+  if (!data) return <Section>loading...</Section>;
 
   return (
-    <SerivcesWrapper title={'Serviços'}>
+    <Section title={'Serviços'} id={'servicos'}>
       <div className='grid grid-cols-4 gap-4'>
         {data?.map((item) => (
           <div
@@ -32,7 +19,7 @@ const Services = () => {
           </div>
         ))}
       </div>
-    </SerivcesWrapper>
+    </Section>
   );
 };
 
