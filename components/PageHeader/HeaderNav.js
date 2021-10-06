@@ -6,7 +6,7 @@ const HeaderNav = (props) => {
     main: [
       {
         title: 'Missão',
-        link: '/missao',
+        link: '/#missao',
       },
       {
         title: 'Áreas de Atuação',
@@ -36,20 +36,20 @@ const HeaderNav = (props) => {
       mobile: `absolute top-0 w-full h-screen bg-black bg-opacity-90 transition-all pt-6`,
       open: isOpen ? `right-0` : `-right-full lg:right-0`,
       desktop: `lg:relative lg:flex lg:h-auto lg:bg-transparent`,
+      header: `text-white bottom-decoration ml-8 p-0 mb-4 inline-block`,
     },
     button: {
       mobile: `ml-auto z-50 cursor-pointer`,
       desktop: `lg:hidden`,
+      icon: 'w-8 h-8 text-yellow-400',
     },
   };
 
   return (
-    <div className={`nav-header ${styles.header}`}>
-      <div
-        className={`nav-button ${styles.button.mobile} ${styles.button.desktop}`}
-      >
+    <div className={styles.header}>
+      <div className={`${styles.button.mobile} ${styles.button.desktop}`}>
         <svg
-          className='w-8 h-8 text-yellow-400'
+          className={styles.button.icon}
           x-show='!showMenu'
           fill='none'
           strokeLinecap='round'
@@ -63,11 +63,9 @@ const HeaderNav = (props) => {
         </svg>
       </div>
       <div
-        className={`nav-header__menu ${styles.menu.mobile} ${styles.menu.open} ${styles.menu.desktop}`}
+        className={`${styles.menu.mobile} ${styles.menu.open} ${styles.menu.desktop}`}
       >
-        {isOpen && (
-          <h2 className={`text-white  bottom-decoration pl-8`}>Menu</h2>
-        )}
+        {isOpen && <h2 className={styles.menu.header}>Menu</h2>}
         <ul className='lg:flex list-none mx-auto'>
           {menuItems.main.map((item, index) => (
             <li key={index} className='py-2 lg:px-8'>
