@@ -1,12 +1,14 @@
+import PageFooter from 'components/PageFooter/PageFooter';
+import PageHeader from 'components/PageHeader/PageHeader';
 import Head from 'next/head';
 
 const Layout = (props) => {
-  const { title, description, children } = props;
+  const { title, children } = props;
 
   const siteInfo = {
-    title: 'Snow Wind Boilerplate',
-    description: 'A NextJS + Tailwind starter kit',
-    keywords: 'nexts, tailwind, boilerplate',
+    title: 'Agrello & Fernandes',
+    description: 'Advocacia e Consultoria Jurídica',
+    keywords: 'advocacia, advogado, jurídico',
   };
 
   return (
@@ -25,7 +27,9 @@ const Layout = (props) => {
         <meta property='og:image' content='tile-wide.png' />
         <link rel='apple-touch-icon' href='apple-touch-icon.png' />
       </Head>
+      <PageHeader />
       <main>{children}</main>
+      <PageFooter />
     </>
   );
 };

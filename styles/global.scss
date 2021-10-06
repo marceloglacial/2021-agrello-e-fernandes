@@ -15,7 +15,28 @@
   ul {
     @apply list-disc pl-8;
   }
+
   a {
-    @apply text-blue-700 underline dark:text-blue-300;
+    @apply text-yellow-400 no-underline relative;
   }
+  a::after {
+    @apply bg-yellow-400 absolute left-0 -bottom-1 w-0 h-0.5 transition-all ease-in-out duration-100;
+    content: '';
+  }
+  a:hover:after {
+    @apply w-full;
+  }
+}
+
+@layer components {
+  .bottom-decoration {
+    @apply relative;
+  }
+  .bottom-decoration::after {
+    @apply bg-yellow-400 absolute left-0 -bottom-1 w-full h-0.5 transition-all ease-in-out duration-100;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }

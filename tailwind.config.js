@@ -6,6 +6,9 @@ module.exports = {
     fontFamily: {
       sans: ['Montserrat', 'sans-serif'],
     },
+    maxHeight: {
+      720: '60rem',
+    },
   },
   variants: {
     extend: {},

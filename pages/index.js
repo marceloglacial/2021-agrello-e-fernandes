@@ -1,46 +1,19 @@
-import Layout from 'components/Layout/Layout';
-import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
+import Hero from 'components/Hero/Hero';
+import Services from 'components/Services/Services';
 
 export default function Home() {
+  const heroProps = {
+    title: 'Dedicação, compromisso e ética',
+    description: 'Conheça mais sobre os nossos valores',
+    video:
+      // 'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469810/agrelloefernandes/pexels-ekaterina-bolovtsova-6101151_jkuyq0.mp4',
+      // 'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061570_wxlmyz.mp4',
+      'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061667_gmkut6.mp4',
+  };
   return (
-    <Layout>
-      <ThemeSwitch />
-      <section className='hero flex justify-center items-center h-screen w-screen bg-white dark:bg-gray-900'>
-        <div className='hero__content dark:text-white'>
-          <h1>Snow Wind Boilerplate</h1>
-          <p>A NextJS + Tailwind Start Kit</p>
-          <h2>Features</h2>
-          <ul>
-            <li>
-              <a href='https://nextjs.org/'>NextJS</a> ready
-            </li>
-            <li>
-              <a href='https://tailwindcss.com'>Tailwind CSS</a> ready
-            </li>
-            <li>
-              <a href='https://sass-lang.com/'>SASS</a> ready
-            </li>
-            <li>
-              <a href='https://www.cypress.io/'>Cypress</a> ready
-            </li>
-            <li>
-              <a href='https://nextjs.org/docs/basic-features/eslint'>ESLint</a>
-              ready
-            </li>
-            <li>
-              <a href='https://tailwindcss.com/docs/dark-mode'>
-                Theme Switcher
-              </a>
-            </li>
-            <li>Custom Header with SEO optimizations</li>
-            <li>Google Font pre-connect</li>
-          </ul>
-
-          <h3>
-            Created by <a href='https://marceloglacial.com'>Marcelo Glacial</a>
-          </h3>
-        </div>
-      </section>
-    </Layout>
+    <>
+      <Hero {...heroProps} />
+      {/* <Services /> */}
+    </>
   );
 }
