@@ -3,8 +3,8 @@ import useSWR from 'swr';
 
 const Services = () => {
   const { data, error } = useSWR('/api/services', fetcher);
-  if (error) return <Section title={'Error'}>failed to load</Section>;
-  if (!data) return <Section>loading...</Section>;
+  if (error) return <section title={'Error'}>failed to load</section>;
+  if (!data) return <section>loading...</section>;
 
   return (
     <section id={'servicos'}>
