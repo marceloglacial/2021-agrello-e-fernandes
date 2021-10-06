@@ -30,7 +30,7 @@ const PageHeader = (props) => {
   const styles = {
     default: `page-header fixed z-50 flex items-center w-full bg-black transition-all ease-in-out duration-500`,
     mobile: `p-6`,
-    desktop: `lg:p-8`,
+    desktop: `xl:py-4 xl:px-8`,
     scroll: scrollTop >= 200 ? `bg-opacity-90 shadow-lg` : 'bg-opacity-0',
   };
 

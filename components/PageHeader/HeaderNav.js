@@ -11,22 +11,22 @@ const HeaderNav = (props) => {
   if (!data) return <div>loading...</div>;
 
   const styles = {
-    header: `flex flex-grow justify-end`,
+    header: `flex flex-grow justify-end xl:py-4`,
     menu: {
-      header: `text-white bottom-decoration ml-8 p-0 mb-4 inline-block  lg:hidden`,
-      open: isOpen ? `right-0` : `-right-full lg:right-0`,
-      mobile: `absolute top-0 w-full h-screen bg-black bg-opacity-90 transition-all pt-6`,
-      desktop: `lg:relative lg:flex lg:h-auto lg:bg-transparent`,
-      primary: 'lg:flex list-none mx-auto',
-      primaryItem: 'py-2 lg:px-8',
+      header: `menu__header text-white bottom-decoration ml-8 p-0 mb-4 inline-block  xl:hidden`,
+      open: isOpen ? `right-0` : `-right-full xl:right-0`,
+      mobile: `absolute xl:relative top-0 w-full h-screen bg-black bg-opacity-90 transition-all pt-6 xl:pt-0`,
+      desktop: `xl:relative xl:flex xl:h-auto xl:bg-transparent`,
+      primary: 'xl:flex list-none mx-auto',
+      primaryItem: 'py-2 xl:px-8 xl:p-0 m-0',
       primaryItemLink: 'text-xl text-white',
       secondary: 'flex list-none',
-      secondaryItem: 'py-2 lg:px-2',
+      secondaryItem: 'py-2 xl:px-2  xl:p-0',
       secondaryItemLink: 'text-xl',
     },
     button: {
       mobile: `ml-auto z-50 cursor-pointer`,
-      desktop: `lg:hidden`,
+      desktop: `xl:hidden`,
       icon: 'w-8 h-8 text-yellow-400',
     },
   };

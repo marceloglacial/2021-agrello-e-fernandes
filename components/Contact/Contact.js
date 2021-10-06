@@ -1,16 +1,16 @@
 const Contact = (props) => {
   const styles = {
-    container: 'pt-24 pb-2 lg:py-48 min-h-360 relative overflow-hidden',
-    grid: 'lg:grid lg:grid-cols-2 container p-6 lg:p-0 mx-auto',
+    container: 'pt-24 pb-2 xl:py-48 min-h-360 relative overflow-hidden',
+    grid: 'xl:grid xl:grid-cols-2 container p-6 xl:p-0 mx-auto',
     form: {
-      container: 'lg:pr-12',
+      container: 'xl:pr-12',
       group: 'flex flex-col gap-2 mb-6',
-      button: 'bg-yellow-400 text-white  lg:max-w-xs',
+      button: 'bg-yellow-400 text-white  xl:max-w-xs',
     },
     map: {
       container: '',
       title: `hidden`,
-      iframe: `h-full w-full min-h-360 lg:w-1/2 lg:absolute top-0`,
+      iframe: `h-full w-full min-h-360 xl:w-1/2 xl:absolute top-0`,
     },
   };
 
