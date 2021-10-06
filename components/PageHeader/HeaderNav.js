@@ -38,7 +38,7 @@ const HeaderNav = (props) => {
       desktop: `lg:relative lg:flex lg:h-auto lg:bg-transparent`,
     },
     button: {
-      mobile: `ml-auto z-50`,
+      mobile: `ml-auto z-50 cursor-pointer`,
       desktop: `lg:hidden`,
     },
   };
