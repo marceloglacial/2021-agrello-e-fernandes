@@ -1,13 +1,13 @@
 const Hero = (props) => {
   const { title, description, video } = props;
   const styles = {
-    container: `hero relative flex items-center justify-center text-white overflow-hidden min-h-50`,
+    container: `hero relative flex items-center justify-center text-white overflow-hidden  min-h-360`,
     content:
-      'hero__content absolute w-full h-full bg-black bg-opacity-60 flex items-center justify-center',
+      'hero__content absolute z-10 w-full h-full bg-black bg-opacity-60 flex items-center justify-center',
     header: `hero__header p-6 container`,
-    headerTitle: 'pb-2',
+    headerTitle: 'text-4xl xl:text-5xl pb-2',
     headerDesription: 'text-xl',
-    video: `w-screen h-screen max-h-720 object-cover`,
+    video: `w-screen h-screen max-h-720 object-cover relative z-5`,
   };
 
   return (
@@ -22,8 +22,14 @@ const Hero = (props) => {
       </div>
       {video && (
         <div className='hero__video'>
-          <video autoPlay muted loop className={styles.video}>
-            <source src={video} type='video/mp4' />
+          <video
+            autoPlay
+            muted
+            loop
+            poster={video.poster}
+            className={styles.video}
+          >
+            <source src={video.source} type='video/mp4' />
             Your browser does not support the video tag.
           </video>
         </div>

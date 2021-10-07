@@ -23,8 +23,9 @@ const data = {
   ],
   social: [
     {
-      title: '(88) 8888.8888',
-      link: 'tel: (88) 8888.8888',
+      title: '(85) 3035.8116',
+      link: 'tel:+558530358116',
+      type: 'tel',
     },
   ],
 };

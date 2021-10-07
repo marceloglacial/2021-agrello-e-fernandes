@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import fetcher from 'functions/fetcher';
 import useSWR from 'swr';
+import { BsTelephone } from 'react-icons/bs';
+import { AiOutlineMail } from 'react-icons/ai';
 
 const HeaderNav = (props) => {
   const { data, error } = useSWR('/api/navigation', fetcher);
@@ -23,12 +25,23 @@ const HeaderNav = (props) => {
       secondary: 'flex list-none',
       secondaryItem: 'py-2 xl:px-2  xl:p-0',
       secondaryItemLink: 'text-xl',
+      icon: 'inline mr-2 mb-1',
+      iconSize: 20,
     },
     button: {
       mobile: `ml-auto z-50 cursor-pointer`,
       desktop: `xl:hidden`,
       icon: 'w-8 h-8 text-yellow-400',
     },
+  };
+
+  const itemType = {
+    tel: (
+      <BsTelephone size={styles.menu.iconSize} className={styles.menu.icon} />
+    ),
+    email: (
+      <AiOutlineMail size={styles.menu.iconSize} className={styles.menu.icon} />
+    ),
   };
 
   return (
@@ -74,7 +87,10 @@ const HeaderNav = (props) => {
                   className={styles.menu.secondaryItemLink}
                   onClick={() => setIsOpen(!isOpen)}
                 >
-                  {item.title}
+                  <div>
+                    {itemType[item.type] || ''}
+                    {item.title}
+                  </div>
                 </a>
               </Link>
             </li>

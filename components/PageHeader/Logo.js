@@ -7,7 +7,7 @@ const Logo = (props) => {
 
   return (
     <div className={styles.container}>
-      <Link href='/'>
+      <Link href='/#'>
         <a className={styles.logo}>Agrello & Fernandes</a>
       </Link>
     </div>
