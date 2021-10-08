@@ -30,8 +30,8 @@ const Team = (props) => {
         <h2 className='page-heading'>Quem Somos</h2>
         <div className='grid xl:grid-cols-2 gap-8'>
           {data.map((item) => (
-            <div className='team-member' key={item.id}>
-              <div className='team-member__avatar'>
+            <div className='team-member relative' key={item.id}>
+              <div className='team-member__avatar relative z-0'>
                 <figure className='relative min-h-360 m-6 xl:m-0'>
                   <Image
                     alt={item.avatar.alt}
@@ -41,11 +41,13 @@ const Team = (props) => {
                   />
                 </figure>
               </div>
-              <header className='team-member__info'>
-                <h3 className='team-member__name'>{item.name}</h3>
-                <p>{item.license}</p>
-                <p>{item.tel}</p>
-              </header>
+              <div className='team-member__info absolute left-6 bottom-6 z-10 bg-white p-6 text-black shadow-xl'>
+                <h3 className='team-member__name p-0 mb-4 text-xl font-bold inline-block bottom-decoration'>
+                  {item.name}
+                </h3>
+                <p className=' text-sm'>{item.license}</p>
+                <p className=' text-sm'>{item.tel}</p>
+              </div>
             </div>
           ))}
         </div>
