@@ -63,6 +63,14 @@
     -webkit-columns: 2;
     -moz-columns: 2;
   }
+
+  .page-heading {
+    @apply bottom-decoration mb-8 p-0 inline-block font-bold;
+  }
+
+  .section--dark {
+    @apply bg-black bg-opacity-90 py-16 text-white text-center xl:text-left;
+  }
 }
 
 html {
