@@ -5,6 +5,14 @@ import {
   AiOutlineInstagram,
 } from 'react-icons/ai';
 
+const icons = {
+  linkedin: {
+    title: 'Linkedin',
+    link: 'https://linkedin.com',
+    icon: '',
+  },
+};
+
 const FooterVcard = (props) => {
   const { styles } = props;
   return (
@@ -13,12 +21,6 @@ const FooterVcard = (props) => {
         <Logo />
       </div>
       <div id='vcard' className='vcard'>
-        <a className='url fn n' href='http://agrelloefernandes.com'>
-          <span className='given-name'></span>
-          <span className='additional-name'></span>
-          <span className='family-name'></span>
-        </a>
-        <div className='org hidden'>Agrello & Fernandes</div>
         <a className='email' href='mailto:contato@agrelloefernandes.com.br'>
           contato@agrelloefernandes.com.br
         </a>
@@ -36,19 +38,19 @@ const FooterVcard = (props) => {
         </div>
       </div>
       <div className={styles.footer.vcard.iconsContainer}>
-        <a hrf='#'>
+        <a href='#' title='Linkedin'>
           <AiOutlineLinkedin
             size={styles.footer.vcard.iconSize}
             className={styles.footer.vcard.icon}
           />
         </a>
-        <a hrf='#'>
+        <a href='#' title='Facebook'>
           <AiOutlineFacebook
             size={styles.footer.vcard.iconSize}
             className={styles.footer.vcard.icon}
           />
         </a>
-        <a hrf='#'>
+        <a href='#' title='Instagram'>
           <AiOutlineInstagram
             size={styles.footer.vcard.iconSize}
             className={styles.footer.vcard.icon}

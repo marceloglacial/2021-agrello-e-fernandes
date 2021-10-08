@@ -21,7 +21,7 @@ const PageHeader = (props) => {
       setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
     }
 
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
 

@@ -63,6 +63,7 @@ const Contact = (props) => {
         <div className={styles.map.container}>
           <h2 className={styles.map.title}>Onde nos Encontrar</h2>
           <iframe
+            title='Onde nos Encontrar'
             className={styles.map.iframe}
             src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.3385543482077!2d-38.489932385240856!3d-3.7361985972817333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7c7487e2bbae5db%3A0xa286e675e7c5bd07!2sAv.%20J%C3%BAlio%20Abreu%2C%20160%20-%20Meireles%2C%20Fortaleza%20-%20CE%2C%2060160-240%2C%20Brazil!5e0!3m2!1sen!2sca!4v1633542878700!5m2!1sen!2sca'
             loading='lazy'
