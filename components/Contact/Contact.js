@@ -18,9 +18,7 @@ const Contact = (props) => {
     <section id='contato' className={styles.container}>
       <div className={styles.grid}>
         <div className={styles.form.container}>
-          <h2 className='bottom-decoration mb-8 p-0 inline-block text-yellow-400 font-bold'>
-            Fale Conosco
-          </h2>
+          <h2 className='page-heading'>Fale Conosco</h2>
           <form action='https://api.staticforms.xyz/submit' method='post'>
             <input type='text' name='honeypot' className='hidden' />
             <input
