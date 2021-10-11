@@ -9,7 +9,7 @@ const HeaderNav = (props) => {
   const { data, error } = useSWR('/api/navigation', fetcher);
   const [isOpen, setIsOpen] = useState(false);
 
-  if (error) return <div title={'Error'}>failed to load</div>;
+  if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
 
   const styles = {
