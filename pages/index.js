@@ -1,5 +1,6 @@
 import Contact from 'components/Contact/Contact';
 import Hero from 'components/Hero/Hero';
+import Services from 'components/Services/Services';
 import Team from 'components/Team/Team';
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <>
       <Hero {...heroProps} />
+      <Services />
       <Team />
       <Contact />
     </>

@@ -10,7 +10,7 @@ const Team = (props) => {
   if (!data) return <div>loading...</div>;
 
   const styles = {
-    section: 'section--dark py-24',
+    section: 'section--dark pt-28 pb-7 xl:pt-32 xl:pb-32',
     container: 'container mx-auto',
     grid: 'grid xl:grid-cols-2 gap-8',
     teamMember: {

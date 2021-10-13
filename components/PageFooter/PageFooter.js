@@ -5,7 +5,7 @@ import FooterVcard from './FooterVcard';
 const PageFooter = (props) => {
   const styles = {
     footer: {
-      container: 'footer w-screen section--dark',
+      container: 'footer w-screen section--dark py-16',
       grid: 'xl:grid grid-cols-4 container px-6 xl:p-0 mx-auto',
       heading: 'bottom-decoration inline-block mb-4',
       list: 'list-none p-0',
@@ -16,7 +16,7 @@ const PageFooter = (props) => {
         iconSize: 32,
       },
       services: {
-        container: 'py-12 lx:py-0 xl:px-24 col-span-2',
+        container: 'py-12 xl:py-0 xl:px-24 col-span-2',
         column: 'xl:list-cols-2',
       },
     },
