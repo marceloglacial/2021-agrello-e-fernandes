@@ -1,9 +1,17 @@
 const formatTel = (tel) => {
-  return tel
-    .replaceAll('(', '')
-    .replaceAll(')', '')
-    .replaceAll('-', '')
-    .replaceAll('.', '')
-    .replaceAll(' ', '');
+  return (
+    `+` +
+    tel
+      .split('(')
+      .join('')
+      .split(')')
+      .join('')
+      .split('-')
+      .join('')
+      .split('.')
+      .join('')
+      .split(' ')
+      .join('')
+  );
 };
 export default formatTel;
