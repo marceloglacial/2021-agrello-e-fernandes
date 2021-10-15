@@ -4,10 +4,7 @@ import fetcher from 'functions/fetcher';
 import useSWR from 'swr';
 
 const Team = (props) => {
-  const { data, error } = useSWR('/api/team', fetcher);
-
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  const { team: data } = props;
 
   const styles = {
     section: 'section--dark pt-28 pb-7 xl:pt-32 xl:pb-32',
@@ -31,26 +28,33 @@ const Team = (props) => {
         <h2 className='page-heading'>Quem Somos</h2>
         <div className={styles.grid}>
           {data.map((item) => (
-            <div className={styles.teamMember.container} key={item.id}>
+            <div
+              className={styles.teamMember.container}
+              key={item.teamMember.id}
+            >
               <div className={styles.teamMember.avatar}>
                 <figure className={styles.teamMember.figure}>
                   <Image
-                    alt={item.avatar.alt}
-                    src={item.avatar.src}
+                    alt={item.teamMember.picture.alternativeText}
+                    src={item.teamMember.picture.formats.small.url}
                     layout='fill'
                     className={styles.teamMember.image}
                   />
                 </figure>
               </div>
               <div className={styles.teamMember.info}>
-                <h3 className={styles.teamMember.name}>{item.name}</h3>
-                <p className={styles.teamMember.description}>{item.license}</p>
+                <h3 className={styles.teamMember.name}>
+                  {item.teamMember.name}
+                </h3>
+                <p className={styles.teamMember.description}>
+                  {item.teamMember.license}
+                </p>
                 <p className={styles.teamMember.description}>
                   <a
                     className={styles.teamMember.tel}
-                    href={`tel:${formatTel(item.tel)}`}
+                    href={`tel:${formatTel(item.teamMember.tel)}`}
                   >
-                    {item.tel}
+                    {item.teamMember.tel}
                   </a>
                 </p>
               </div>

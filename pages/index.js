@@ -3,23 +3,28 @@ import Hero from 'components/Hero/Hero';
 import Services from 'components/Services/Services';
 import Team from 'components/Team/Team';
 
-export default function Home() {
-  const heroProps = {
-    title: 'Dedicação, compromisso e ética',
-    description: 'Conheça mais sobre os nossos valores',
-    video: {
-      poster:
-        'https://res.cloudinary.com/dw2wjwhuv/video/upload/ac_none,c_scale,w_609/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061667_gmkut6.gif',
-      source:
-        'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061667_gmkut6.mp4',
-    },
-  };
+export default function Home({ homepage }) {
+  const { hero, services, team, contact } = homepage;
   return (
     <>
-      <Hero {...heroProps} />
-      <Services />
-      <Team />
-      <Contact />
+      <Hero {...hero} />
+      <Services {...services} />
+      <Team team={team} />
+      <Contact {...contact} />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch(
+    'https://agrello-e-fernandes-admin.herokuapp.com/homepage'
+  );
+  const homepage = await res.json();
+
+  return {
+    props: {
+      homepage,
+    },
+    revalidate: 10,
+  };
 }
