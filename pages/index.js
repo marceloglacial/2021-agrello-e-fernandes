@@ -1,25 +1,58 @@
 import Contact from 'components/Contact/Contact';
 import Hero from 'components/Hero/Hero';
+import Layout from 'components/Layout/Layout';
 import Services from 'components/Services/Services';
 import Team from 'components/Team/Team';
+import { fetchAPI } from 'functions/fetchApit';
 
-export default function Home() {
-  const heroProps = {
-    title: 'Dedicação, compromisso e ética',
-    description: 'Conheça mais sobre os nossos valores',
-    video: {
-      poster:
-        'https://res.cloudinary.com/dw2wjwhuv/video/upload/ac_none,c_scale,w_609/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061667_gmkut6.gif',
-      source:
-        'https://res.cloudinary.com/dw2wjwhuv/video/upload/v1633469809/agrelloefernandes/pexels-pavel-danilyuk-8061667_gmkut6.mp4',
-    },
+const Home = (props) => {
+  const {
+    global,
+    homepage,
+    services: servicesData,
+    members: membersData,
+  } = props;
+
+  const { hero, services, members, contact } = homepage;
+  const servicesProps = {
+    ...services,
+    data: servicesData,
   };
+  const membersProps = {
+    ...members,
+    data: membersData,
+  };
+
+  const layoutProps = {
+    siteInfo: global,
+    servicesData,
+  };
+
   return (
-    <>
-      <Hero {...heroProps} />
-      <Services />
-      <Team />
-      <Contact />
-    </>
+    <Layout {...layoutProps}>
+      <Hero {...hero} />
+      <Services {...servicesProps} />
+      <Team {...membersProps} />
+      <Contact {...contact} />
+    </Layout>
   );
+};
+export default Home;
+
+export async function getStaticProps() {
+  const [homepage, services, members, global] = await Promise.all([
+    fetchAPI(`/homepage`),
+    fetchAPI(`/services`),
+    fetchAPI(`/members`),
+    fetchAPI(`/global`),
+  ]);
+  return {
+    props: {
+      homepage,
+      services,
+      members,
+      global,
+    },
+    revalidate: 10,
+  };
 }
