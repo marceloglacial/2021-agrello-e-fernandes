@@ -62,3 +62,10 @@
     max-height: 60rem;
   }
 }
+
+.image-style-align-left {
+  @apply float-left mr-8;
+}
+.image-style-align-right {
+  @apply float-right ml-8;
+}
