@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   h1 {
     @apply text-5xl;
   }
@@ -63,16 +66,4 @@
     -webkit-columns: 2;
     -moz-columns: 2;
   }
-
-  .page-heading {
-    @apply bottom-decoration mb-8 p-0 inline-block font-bold;
-  }
-
-  .section--dark {
-    @apply bg-black bg-opacity-90 text-white text-center xl:text-left;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
 }

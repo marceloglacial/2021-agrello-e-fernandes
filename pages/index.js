@@ -1,29 +1,41 @@
-import Contact from 'components/Contact/Contact';
 import Hero from 'components/Hero/Hero';
 import Services from 'components/Services/Services';
 import Team from 'components/Team/Team';
+import { fetchAPI } from 'functions/fetchApit';
 
-export default function Home({ homepage }) {
-  const { hero, services, team, contact } = homepage;
+const Home = (props) => {
+  const { homepage, services: servicesData, members: membersData } = props;
+  const { hero, services, members } = homepage;
+  const servicesProps = {
+    ...services,
+    data: servicesData,
+  };
+  const membersProps = {
+    ...members,
+    data: membersData,
+  };
+
   return (
     <>
       <Hero {...hero} />
-      <Services {...services} />
-      <Team team={team} />
-      <Contact {...contact} />
+      <Services {...servicesProps} />
+      <Team {...membersProps} />
     </>
   );
-}
+};
+export default Home;
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://agrello-e-fernandes-admin.herokuapp.com/homepage'
-  );
-  const homepage = await res.json();
-
+  const [homepage, services, members] = await Promise.all([
+    fetchAPI(`/homepage`),
+    fetchAPI(`/services`),
+    fetchAPI(`/members`),
+  ]);
   return {
     props: {
       homepage,
+      services,
+      members,
     },
     revalidate: 10,
   };

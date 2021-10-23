@@ -1,68 +1,80 @@
+import Section from 'components/Section/Section';
 import formatTel from 'functions/formtatTel';
 import Image from 'next/image';
-import fetcher from 'functions/fetcher';
-import useSWR from 'swr';
 
 const Team = (props) => {
-  const { team: data } = props;
+  const { active, title, data } = props;
+  console.log(data);
 
-  const styles = {
-    section: 'section--dark pt-28 pb-7 xl:pt-32 xl:pb-32',
-    container: 'container mx-auto',
-    grid: 'grid xl:grid-cols-2 gap-8',
-    teamMember: {
-      container: 'team-member relative',
-      avatar: 'team-member__avatar relative z-0',
-      figure: 'relative min-h-360 mx-6 xl:m-0',
-      image: 'object-cover',
-      info: 'team-member__info xl:absolute left-6 bottom-6 z-10 bg-white mx-6 my-0 p-6 xl:m-0 text-black shadow-xl',
-      name: 'team-member__name p-0 mb-4 text-xl font-bold inline-block bottom-decoration',
-      description: 'text-sm',
-      tel: 'text-black',
-    },
-  };
+  if (!active) return '';
 
   return (
-    <section id='quemsomos' className={styles.section}>
-      <div className={styles.container}>
-        <h2 className='page-heading'>Quem Somos</h2>
-        <div className={styles.grid}>
-          {data.map((item) => (
-            <div
-              className={styles.teamMember.container}
-              key={item.teamMember.id}
-            >
-              <div className={styles.teamMember.avatar}>
-                <figure className={styles.teamMember.figure}>
+    <Section id='quemsomos' title={title} dark>
+      <div className={styles.grid}>
+        {data.map((item) => {
+          const { active, id, name, license, tel, email, image } = item;
+          if (!active) return false;
+          return (
+            <div className={styles.member.container} key={id}>
+              <div className={styles.member.avatar}>
+                <figure className={styles.member.figure}>
                   <Image
-                    alt={item.teamMember.picture.alternativeText}
-                    src={item.teamMember.picture.formats.small.url}
+                    alt={image.alternativeText || ''}
+                    src={image.formats.small.url}
                     layout='fill'
-                    className={styles.teamMember.image}
+                    className={styles.member.image}
                   />
                 </figure>
               </div>
-              <div className={styles.teamMember.info}>
-                <h3 className={styles.teamMember.name}>
-                  {item.teamMember.name}
-                </h3>
-                <p className={styles.teamMember.description}>
-                  {item.teamMember.license}
-                </p>
-                <p className={styles.teamMember.description}>
-                  <a
-                    className={styles.teamMember.tel}
-                    href={`tel:${formatTel(item.teamMember.tel)}`}
-                  >
-                    {item.teamMember.tel}
-                  </a>
+              <div className={styles.member.info}>
+                <h3 className={styles.member.name}>{name}</h3>
+                {license && (
+                  <p className={styles.member.description}>{license}</p>
+                )}
+                <p className={styles.member.description}>
+                  {tel && (
+                    <div>
+                      <a
+                        className={styles.member.link}
+                        href={`tel:${formatTel(tel)}`}
+                      >
+                        {tel}
+                      </a>
+                    </div>
+                  )}
+                  {email && (
+                    <div>
+                      <a
+                        className={styles.member.link}
+                        href={`mailto:${email}`}
+                      >
+                        {email}
+                      </a>
+                    </div>
+                  )}
                 </p>
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 };
 export default Team;
+
+const styles = {
+  section: 'section--dark pt-28 pb-7 xl:pt-32 xl:pb-32',
+  container: 'container mx-auto',
+  grid: 'grid xl:grid-cols-2 gap-8',
+  member: {
+    container: 'team-member relative',
+    avatar: 'team-member__avatar relative z-0',
+    figure: 'relative min-h-360 mx-6 xl:m-0',
+    image: 'object-cover',
+    info: 'team-member__info xl:absolute left-6 bottom-6 z-10 bg-white mx-6 my-0 p-6 xl:m-0 text-black shadow-xl',
+    name: 'team-member__name p-0 mb-4 text-xl font-bold inline-block bottom-decoration',
+    description: 'text-sm',
+    link: 'text-black',
+  },
+};
