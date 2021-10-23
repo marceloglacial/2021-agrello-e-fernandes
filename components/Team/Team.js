@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 const Team = (props) => {
   const { active, title, data } = props;
-  console.log(data);
 
   if (!active) return '';
 
@@ -28,31 +27,29 @@ const Team = (props) => {
               </div>
               <div className={styles.member.info}>
                 <h3 className={styles.member.name}>{name}</h3>
-                {license && (
-                  <p className={styles.member.description}>{license}</p>
-                )}
-                <p className={styles.member.description}>
+                <div className={styles.member.description}>
+                  {license && <p>{license}</p>}
                   {tel && (
-                    <div>
+                    <p>
                       <a
                         className={styles.member.link}
                         href={`tel:${formatTel(tel)}`}
                       >
                         {tel}
                       </a>
-                    </div>
+                    </p>
                   )}
                   {email && (
-                    <div>
+                    <p>
                       <a
                         className={styles.member.link}
                         href={`mailto:${email}`}
                       >
                         {email}
                       </a>
-                    </div>
+                    </p>
                   )}
-                </p>
+                </div>
               </div>
             </div>
           );

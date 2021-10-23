@@ -15,7 +15,7 @@ const Section = (props) => {
 export default Section;
 
 const styles = {
-  section: 'py-28 px-6 xl:px-0 xl:py-32',
+  section: 'py-28 px-6 xl:px-0 xl:py-32 relative',
   title: `bottom-decoration mb-12 p-0 inline-block font-bold`,
   container: 'container mx-auto text-center xl:text-left',
   dark: `bg-black bg-opacity-90 text-white text-center xl:text-left`,

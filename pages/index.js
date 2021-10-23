@@ -1,3 +1,4 @@
+import Contact from 'components/Contact/Contact';
 import Hero from 'components/Hero/Hero';
 import Services from 'components/Services/Services';
 import Team from 'components/Team/Team';
@@ -5,7 +6,7 @@ import { fetchAPI } from 'functions/fetchApit';
 
 const Home = (props) => {
   const { homepage, services: servicesData, members: membersData } = props;
-  const { hero, services, members } = homepage;
+  const { hero, services, members, contact } = homepage;
   const servicesProps = {
     ...services,
     data: servicesData,
@@ -20,6 +21,7 @@ const Home = (props) => {
       <Hero {...hero} />
       <Services {...servicesProps} />
       <Team {...membersProps} />
+      <Contact {...contact} />
     </>
   );
 };

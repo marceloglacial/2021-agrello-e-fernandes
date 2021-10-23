@@ -1,26 +1,22 @@
+import Section from 'components/Section/Section';
+
 const Contact = (props) => {
-  const { title, formName, formEmail, formMessage, formButton, mapAddress } =
-    props;
-  const styles = {
-    container: 'pt-24 pb-2 xl:py-48 relative overflow-hidden',
-    grid: 'xl:grid xl:grid-cols-2 container p-6 xl:p-0 mx-auto',
-    form: {
-      container: 'xl:pr-12 text-center xl:text-left',
-      group: 'flex flex-col gap-2 mb-6',
-      button: 'bg-yellow-400 text-white  xl:max-w-xs',
-    },
-    map: {
-      container: '',
-      title: `hidden`,
-      iframe: `h-full w-full min-h-360 xl:w-1/2 xl:absolute top-0`,
-    },
-  };
+  const {
+    active,
+    title,
+    formName,
+    formEmail,
+    formMessage,
+    formButton,
+    mapAddress,
+  } = props;
+
+  if (!active) return '';
 
   return (
-    <section id='contato' className={styles.container}>
+    <Section id='contato' title={title}>
       <div className={styles.grid}>
         <div className={styles.form.container}>
-          <h2 className='page-heading'>{title}</h2>
           <form action='https://api.staticforms.xyz/submit' method='post'>
             <input type='text' name='honeypot' className='hidden' />
             <input
@@ -75,8 +71,22 @@ const Contact = (props) => {
           />
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
-
 export default Contact;
+
+const styles = {
+  grid: 'xl:grid xl:grid-cols-2 container p-6 xl:p-0 mx-auto',
+  form: {
+    container: 'xl:pr-12 text-center xl:text-left',
+    group: 'flex flex-col gap-2 mb-6',
+    button:
+      'bg-yellow-400 text-white  xl:max-w-xs hover:bg-white hover:text-black cursor-pointer transition-colors',
+  },
+  map: {
+    container: '',
+    title: `hidden`,
+    iframe: `h-full w-full min-h-360 xl:w-1/2 xl:absolute top-0`,
+  },
+};
