@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply bg-black bg-opacity-90;
+  }
   h1 {
     @apply text-5xl;
   }
@@ -15,7 +19,53 @@
   ul {
     @apply list-disc pl-8;
   }
+
   a {
-    @apply text-blue-700 underline dark:text-blue-300;
+    @apply text-yellow-400 no-underline relative;
   }
+  a::after {
+    @apply bg-yellow-400 absolute left-0 -bottom-1 w-0 h-0.5 transition-all ease-in-out duration-100;
+    content: '';
+  }
+  a:hover:after {
+    @apply w-full;
+  }
+
+  input,
+  textarea {
+    @apply border-2 border-yellow-400 p-4 placeholder-black;
+  }
+
+  label {
+    @apply hidden;
+  }
+}
+
+@layer components {
+  .bottom-decoration {
+    @apply relative;
+  }
+  .bottom-decoration::after {
+    @apply bg-yellow-400 absolute left-0 -bottom-1 w-full h-0.5 transition-all ease-in-out duration-100;
+    content: '';
+  }
+
+  .min-h-360 {
+    min-height: 30rem;
+  }
+
+  .min-h-720 {
+    min-height: 60rem;
+  }
+
+  .max-h-720 {
+    max-height: 60rem;
+  }
+}
+
+.image-style-align-left {
+  @apply float-left mr-8;
+}
+.image-style-align-right {
+  @apply float-right ml-8;
 }

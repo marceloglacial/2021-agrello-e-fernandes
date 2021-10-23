@@ -10,10 +10,11 @@ class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
+          <link rel='dns-fetch' href='https://maps.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' />
           <link
             crossOrigin='anonymous'
-            href={`https://fonts.googleapis.com/css?family=Montserrat:200,700&display=swap`}
+            href={`https://fonts.googleapis.com/css?family=Montserrat:200,400,500&display=swap`}
             rel='stylesheet'
           />
         </Head>

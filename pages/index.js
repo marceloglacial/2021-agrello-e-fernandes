@@ -1,46 +1,58 @@
+import Contact from 'components/Contact/Contact';
+import Hero from 'components/Hero/Hero';
 import Layout from 'components/Layout/Layout';
-import ThemeSwitch from 'components/ThemeSwitch/ThemeSwitch';
+import Services from 'components/Services/Services';
+import Team from 'components/Team/Team';
+import { fetchAPI } from 'functions/fetchApit';
 
-export default function Home() {
+const Home = (props) => {
+  const {
+    global,
+    homepage,
+    services: servicesData,
+    members: membersData,
+  } = props;
+
+  const { hero, services, members, contact } = homepage;
+  const servicesProps = {
+    ...services,
+    data: servicesData,
+  };
+  const membersProps = {
+    ...members,
+    data: membersData,
+  };
+
+  const layoutProps = {
+    siteInfo: global,
+    servicesData,
+  };
+
   return (
-    <Layout>
-      <ThemeSwitch />
-      <section className='hero flex justify-center items-center h-screen w-screen bg-white dark:bg-gray-900'>
-        <div className='hero__content dark:text-white'>
-          <h1>Snow Wind Boilerplate</h1>
-          <p>A NextJS + Tailwind Start Kit</p>
-          <h2>Features</h2>
-          <ul>
-            <li>
-              <a href='https://nextjs.org/'>NextJS</a> ready
-            </li>
-            <li>
-              <a href='https://tailwindcss.com'>Tailwind CSS</a> ready
-            </li>
-            <li>
-              <a href='https://sass-lang.com/'>SASS</a> ready
-            </li>
-            <li>
-              <a href='https://www.cypress.io/'>Cypress</a> ready
-            </li>
-            <li>
-              <a href='https://nextjs.org/docs/basic-features/eslint'>ESLint</a>
-              ready
-            </li>
-            <li>
-              <a href='https://tailwindcss.com/docs/dark-mode'>
-                Theme Switcher
-              </a>
-            </li>
-            <li>Custom Header with SEO optimizations</li>
-            <li>Google Font pre-connect</li>
-          </ul>
-
-          <h3>
-            Created by <a href='https://marceloglacial.com'>Marcelo Glacial</a>
-          </h3>
-        </div>
-      </section>
+    <Layout {...layoutProps}>
+      <Hero {...hero} />
+      <Services {...servicesProps} />
+      <Team {...membersProps} />
+      <Contact {...contact} />
     </Layout>
   );
+};
+export default Home;
+
+export async function getStaticProps() {
+  const [homepage, services, members, global] = await Promise.all([
+    fetchAPI(`/homepage`),
+    fetchAPI(`/services`),
+    fetchAPI(`/members`),
+    fetchAPI(`/global`),
+  ]);
+  return {
+    props: {
+      homepage,
+      services,
+      members,
+      global,
+    },
+    revalidate: 10,
+  };
 }

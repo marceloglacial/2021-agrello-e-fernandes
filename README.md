@@ -1,6 +1,4 @@
-![Cypress workflow](https://github.com/marceloglacial/snow-wind/actions/workflows/main.yml/badge.svg) ![CodeScan workflow](https://github.com/marceloglacial/snow-wind/actions/workflows/codeql-analysis.yml/badge.svg)
-
-# Snow Wind Boilerplate
+# Agrello e Fernandes Website (2021)
 A NextJS + Tailwind starter kit
 
 ## Features
@@ -10,9 +8,9 @@ A NextJS + Tailwind starter kit
 - <a href='https://sass-lang.com/'>SASS</a> ready
 - <a href='https://www.cypress.io/'>Cypress</a> ready
 - <a href='https://nextjs.org/docs/basic-features/eslint'>ESLint</a> ready
-- <a href='https://tailwindcss.com/docs/dark-mode'>Theme Switcher</a>
 - Custom Header with SEO optimizations
 - Google Font pre-connect
 
+Based on <a href='https://github.com/marceloglacial/snow-wind'>Snow Wind</a>
 
 Created by <a href='https://marceloglacial.com'>Marcelo Glacial</a>
