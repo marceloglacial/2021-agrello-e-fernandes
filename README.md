@@ -1,5 +1,3 @@
-![Cypress workflow](https://github.com/marceloglacial/2021-agrello-e-fernandes/actions/workflows/main.yml/badge.svg) ![CodeScan workflow](https://github.com/marceloglacial/2021-agrello-e-fernandes/actions/workflows/codeql-analysis.yml/badge.svg)
-
 # Agrello e Fernandes Website (2021)
 A NextJS + Tailwind starter kit
 
