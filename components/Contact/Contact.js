@@ -77,7 +77,7 @@ const Contact = (props) => {
 export default Contact;
 
 const styles = {
-  grid: 'xl:grid xl:grid-cols-2 container p-6 xl:p-0 mx-auto',
+  grid: 'xl:grid xl:grid-cols-2 container mx-auto',
   form: {
     container: 'xl:pr-12 text-center xl:text-left',
     group: 'flex flex-col gap-2 mb-6',

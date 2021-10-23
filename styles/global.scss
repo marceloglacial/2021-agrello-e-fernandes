@@ -64,8 +64,19 @@
 }
 
 .image-style-align-left {
-  @apply float-left mr-8;
+  @apply xl:float-left xl:mr-8;
 }
+
 .image-style-align-right {
-  @apply float-right ml-8;
+  @apply xl:float-right xl:ml-8;
+}
+
+// Rich Editor Overrides
+@responsive {
+  @media screen and (max-width: 1024px) {
+    .image {
+      width: 100% !important;
+      margin-bottom: 1rem;
+    }
+  }
 }
