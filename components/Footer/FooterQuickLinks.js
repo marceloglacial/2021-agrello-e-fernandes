@@ -13,6 +13,16 @@ const FooterQuickLinks = (props) => {
             </Link>
           </li>
         ))}
+        <li>
+          <a
+            className={styles.footer.link}
+            href={`${process.env.MY_HEROKU_URL}/admin`}
+            target='_blank'
+            rel='noreferrer'
+          >
+            Site Admin
+          </a>
+        </li>
       </ul>
     </div>
   );

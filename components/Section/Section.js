@@ -1,8 +1,17 @@
 const Section = (props) => {
   const { id, title, children, className, dark, page } = props;
+  const styles = {
+    section: `relative bg-white`,
+    title: `bottom-decoration mb-12 p-0 inline-block font-bold`,
+    container: `container mx-auto px-6 xl:px-0 ${
+      page ? `pt-8` : `pt-32 pb-8 xl:pb-32 text-center xl:text-left`
+    }`,
+    dark: `bg-transparent text-white text-center xl:text-left`,
+  };
+
   return (
     <>
-      {page && <div className='p-12 bg-black bg-opacity-90' />}
+      {page && <div className='p-11 xl:p-12 bg-black bg-opacity-90' />}
       <section
         id={id || ''}
         className={`${dark && styles.dark} ${styles.section}`}
@@ -16,10 +25,3 @@ const Section = (props) => {
   );
 };
 export default Section;
-
-const styles = {
-  section: 'py-28 px-6 xl:px-0 xl:py-32 relative bg-white',
-  title: `bottom-decoration mb-12 p-0 inline-block font-bold`,
-  container: 'container mx-auto text-center xl:text-left',
-  dark: `bg-transparent text-white text-center xl:text-left`,
-};

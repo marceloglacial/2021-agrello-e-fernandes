@@ -61,15 +61,13 @@ const Team = (props) => {
 export default Team;
 
 const styles = {
-  section: 'section--dark pt-28 pb-7 xl:pt-32 xl:pb-32',
-  container: 'container mx-auto',
   grid: 'grid xl:grid-cols-2 gap-8',
   member: {
     container: 'team-member relative',
     avatar: 'team-member__avatar relative z-0',
-    figure: 'relative min-h-360 mx-6 xl:m-0',
+    figure: 'relative min-h-360',
     image: 'object-cover',
-    info: 'team-member__info xl:absolute left-6 bottom-6 z-10 bg-white mx-6 my-0 p-6 xl:m-0 text-black shadow-xl',
+    info: 'team-member__info xl:absolute left-6 bottom-6 z-10 bg-white p-6 xl:m-0 text-black shadow-xl',
     name: 'team-member__name p-0 mb-4 text-xl font-bold inline-block bottom-decoration',
     description: 'text-sm',
     link: 'text-black',
