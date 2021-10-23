@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import HeaderNav from './HeaderNav';
 import Logo from './Logo';
 
-const PageHeader = (props) => {
+const Header = (props) => {
   // Scroll detection
   // ==============================================
   const [scrolling, setScrolling] = useState(false);
@@ -45,4 +45,4 @@ const PageHeader = (props) => {
     </header>
   );
 };
-export default PageHeader;
+export default Header;
