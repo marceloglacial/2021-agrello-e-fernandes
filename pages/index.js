@@ -12,6 +12,7 @@ const Home = (props) => {
     services: servicesData,
     members: membersData,
   } = props;
+
   const { hero, services, members, contact } = homepage;
   const servicesProps = {
     ...services,

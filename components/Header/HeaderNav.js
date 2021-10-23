@@ -1,16 +1,11 @@
+import formatTel from 'functions/formtatTel';
 import Link from 'next/link';
 import { useState } from 'react';
-import fetcher from 'functions/fetcher';
-import useSWR from 'swr';
 import { BsTelephone } from 'react-icons/bs';
-import { AiOutlineMail } from 'react-icons/ai';
 
 const HeaderNav = (props) => {
-  const { data, error } = useSWR('/api/navigation', fetcher);
+  const { menu: data, siteTel } = props.siteInfo;
   const [isOpen, setIsOpen] = useState(false);
-
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
 
   const styles = {
     header: `flex flex-grow justify-end xl:py-4`,
@@ -35,15 +30,6 @@ const HeaderNav = (props) => {
     },
   };
 
-  const itemType = {
-    tel: (
-      <BsTelephone size={styles.menu.iconSize} className={styles.menu.icon} />
-    ),
-    email: (
-      <AiOutlineMail size={styles.menu.iconSize} className={styles.menu.icon} />
-    ),
-  };
-
   return (
     <div className={styles.header}>
       <div className={`${styles.button.mobile} ${styles.button.desktop}`}>
@@ -66,35 +52,37 @@ const HeaderNav = (props) => {
       >
         {isOpen && <h2 className={styles.menu.header}>Menu</h2>}
         <ul className={styles.menu.primary}>
-          {data.main.map((item, index) => (
+          {data.map((item, index) => (
             <li key={index} className={styles.menu.primaryItem}>
-              <Link href={item.link}>
+              <Link href={`/${item.link}`}>
                 <a
                   className={styles.menu.primaryItemLink}
                   onClick={() => setIsOpen(!isOpen)}
                 >
-                  {item.title}
+                  {item.text}
                 </a>
               </Link>
             </li>
           ))}
         </ul>
         <ul className={styles.menu.secondary}>
-          {data.social.map((item, index) => (
-            <li key={index} className={styles.menu.secondaryItem}>
-              <Link href={item.link}>
-                <a
-                  className={styles.menu.secondaryItemLink}
-                  onClick={() => setIsOpen(!isOpen)}
-                >
-                  <div>
-                    {itemType[item.type] || ''}
-                    {item.title}
-                  </div>
-                </a>
-              </Link>
+          {siteTel && (
+            <li className={styles.menu.secondaryItem}>
+              <a
+                href={`tel:${formatTel(siteTel)}`}
+                className={styles.menu.secondaryItemLink}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <div>
+                  <BsTelephone
+                    size={styles.menu.iconSize}
+                    className={styles.menu.icon}
+                  />
+                  {siteTel}
+                </div>
+              </a>
             </li>
-          ))}
+          )}
         </ul>
       </div>
     </div>

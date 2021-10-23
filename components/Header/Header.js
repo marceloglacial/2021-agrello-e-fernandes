@@ -41,7 +41,7 @@ const Header = (props) => {
       className={`${styles.default} ${styles.mobile} ${styles.desktop} ${styles.scroll}`}
     >
       <Logo />
-      <HeaderNav />
+      <HeaderNav {...props} />
     </header>
   );
 };

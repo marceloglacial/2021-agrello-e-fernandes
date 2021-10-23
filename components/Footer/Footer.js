@@ -9,7 +9,7 @@ const Footer = (props) => {
       <div className={styles.footer.grid}>
         <FooterVcard styles={styles} siteInfo={siteInfo} />
         <FooterServices styles={styles} data={servicesData} />
-        <FooterQuickLinks styles={styles} data={siteMenu} />
+        <FooterQuickLinks styles={styles} data={siteInfo.menu} />
       </div>
     </footer>
   );
