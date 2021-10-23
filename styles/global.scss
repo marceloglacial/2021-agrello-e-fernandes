@@ -5,6 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    @apply bg-black bg-opacity-90;
   }
   h1 {
     @apply text-5xl;

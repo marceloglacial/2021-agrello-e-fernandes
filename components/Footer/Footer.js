@@ -18,8 +18,7 @@ export default Footer;
 
 const styles = {
   footer: {
-    container:
-      'footer w-screen bg-black bg-opacity-90 text-white text-center xl:text-left py-16',
+    container: 'footer w-screen text-white text-center xl:text-left py-16',
     grid: 'xl:grid grid-cols-4 container px-6 xl:p-0 mx-auto',
     heading: 'bottom-decoration inline-block mb-4',
     list: 'list-none p-0',

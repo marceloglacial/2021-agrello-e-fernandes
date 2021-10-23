@@ -3,7 +3,7 @@ const data = {
     {
       id: 1,
       title: 'Missão',
-      link: '/#missao',
+      link: '/missao',
     },
     {
       id: 2,
