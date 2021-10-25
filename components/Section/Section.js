@@ -4,7 +4,7 @@ const Section = (props) => {
     section: `relative bg-white`,
     title: `bottom-decoration mb-12 p-0 inline-block font-bold`,
     container: `container mx-auto px-6 xl:px-0 ${
-      page ? `pt-8` : `pt-32 pb-8 xl:pb-32 text-center xl:text-left`
+      page ? `pt-8 pb-16` : `pt-32 pb-8 xl:pb-32 text-center xl:text-left`
     }`,
     dark: `bg-transparent text-white text-center xl:text-left`,
   };
