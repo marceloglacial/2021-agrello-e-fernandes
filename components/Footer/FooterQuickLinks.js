@@ -2,6 +2,10 @@ import Link from 'next/link';
 
 const FooterQuickLinks = (props) => {
   const { styles, data } = props;
+  const clickHandle = (e) => {
+    e.preventDefault();
+    document.location.href = `${process.env.MY_HEROKU_URL}/admin`;
+  };
   return (
     <div>
       <h4 className={styles.footer.heading}>Acesso Rápido</h4>
@@ -14,12 +18,7 @@ const FooterQuickLinks = (props) => {
           </li>
         ))}
         <li>
-          <a
-            className={styles.footer.link}
-            href={`${process.env.MY_HEROKU_URL}/admin`}
-            target='_blank'
-            rel='noreferrer'
-          >
+          <a onClick={(e) => clickHandle(e)} className={styles.footer.link}>
             Site Admin
           </a>
         </li>
