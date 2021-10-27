@@ -3,7 +3,7 @@ import Hero from 'components/Hero/Hero';
 import Layout from 'components/Layout/Layout';
 import Services from 'components/Services/Services';
 import Team from 'components/Team/Team';
-import { fetchAPI } from 'functions/fetchApit';
+import { fetchAPI } from 'functions/fetchApi';
 
 const Home = (props) => {
   const {

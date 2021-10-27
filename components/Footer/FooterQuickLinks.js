@@ -18,7 +18,10 @@ const FooterQuickLinks = (props) => {
           </li>
         ))}
         <li>
-          <a onClick={(e) => clickHandle(e)} className={styles.footer.link}>
+          <a
+            href={`${process.env.MY_HEROKU_URL}/admin`}
+            className={styles.footer.link}
+          >
             Site Admin
           </a>
         </li>

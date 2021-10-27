@@ -1,6 +1,6 @@
 import Layout from 'components/Layout/Layout';
 import Section from 'components/Section/Section';
-import { fetchAPI } from 'functions/fetchApit';
+import { fetchAPI } from 'functions/fetchApi';
 
 const SinglePage = (props) => {
   const { global, content, services: servicesData } = props;
