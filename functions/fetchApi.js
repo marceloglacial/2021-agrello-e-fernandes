@@ -1,5 +1,5 @@
 export function getStrapiURL(path = '') {
-  return `${process.env.MY_HEROKU_URL}${path}`;
+  return `${process.env.NEXT_PUBLIC_MY_HEROKU_URL}${path}`;
 }
 
 // Helper to make GET requests to Strapi
