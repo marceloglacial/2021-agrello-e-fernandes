@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import HeaderNav from './HeaderNav';
-import Logo from './Logo';
+import Image from 'next/image';
 
 const Header = (props) => {
+  const { siteLogo, siteName } = props.siteInfo;
+
   // Scroll detection
   // ==============================================
   const [scrolling, setScrolling] = useState(false);
@@ -29,9 +31,10 @@ const Header = (props) => {
   // ==============================================
   const styles = {
     default: `page-header fixed z-50 flex items-center w-full bg-black transition-all ease-in-out duration-500`,
-    mobile: `p-6`,
-    desktop: `xl:py-4 xl:px-8`,
+    mobile: `py-4 px-6`,
+    desktop: `xl:py-6 xl:px-8`,
     scroll: scrollTop >= 10 ? `bg-opacity-90 shadow-lg` : 'bg-opacity-0',
+    logo: 'object-cover',
   };
 
   // Return
@@ -40,7 +43,16 @@ const Header = (props) => {
     <header
       className={`${styles.default} ${styles.mobile} ${styles.desktop} ${styles.scroll}`}
     >
-      <Logo />
+      {siteLogo?.url && (
+        <Image
+          src={siteLogo.url}
+          width={211}
+          height={60}
+          alt={'site logo'}
+          className={styles.logo}
+        />
+      )}
+      <h1 className='hidden'>{siteName}</h1>
       <HeaderNav {...props} />
     </header>
   );

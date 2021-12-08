@@ -8,6 +8,7 @@ const SinglePage = (props) => {
   const layoutProps = {
     siteInfo: global,
     servicesData,
+    title: content.title,
   };
 
   return (
