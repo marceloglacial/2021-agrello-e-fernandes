@@ -3,7 +3,7 @@ import Link from 'next/link';
 const FooterQuickLinks = (props) => {
   const { styles, data } = props;
   return (
-    <div>
+    <div className='footer__quicklinks'>
       <h4 className={styles.footer.heading}>Acesso Rápido</h4>
       <ul className={styles.footer.list}>
         {data.map((item) => (

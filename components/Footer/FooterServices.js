@@ -5,7 +5,7 @@ const FooterServices = (props) => {
   const services = sortArray(data);
 
   return (
-    <div className={styles.footer.services.container}>
+    <div className={`footer__menu ${styles.footer.services.container}`}>
       <h4 className={styles.footer.heading}>Serviços</h4>
       <ul className={`${styles.footer.list} ${styles.footer.services.column}`}>
         {services.map((item) => (
