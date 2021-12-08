@@ -19,7 +19,7 @@ const FooterVcard = (props) => {
   } = siteInfo;
 
   return (
-    <div className='vcard'>
+    <div className='footer__logo vcard'>
       {siteLogo?.url && (
         <div className={styles.footer.vcard.logo}>
           <Image
@@ -32,7 +32,7 @@ const FooterVcard = (props) => {
         </div>
       )}
 
-      <div id='vcard' className='vcard'>
+      <div id='vcard' className='footer__address vcard'>
         {siteAdress && (
           <div className='adr'>
             <div className='street-address'>{siteAdress}</div>
@@ -49,7 +49,7 @@ const FooterVcard = (props) => {
           </div>
         )}
       </div>
-      <div className={styles.footer.vcard.iconsContainer}>
+      <div className={`footer__social ${styles.footer.vcard.iconsContainer}`}>
         {siteLinkedin && (
           <a href={siteLinkedin} title='Linkedin'>
             <AiOutlineLinkedin

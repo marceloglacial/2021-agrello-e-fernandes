@@ -5,10 +5,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "yarn run e2e",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
-    "e2e": "start-server-and-test start http://localhost:3000 cypress",
-    "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless"
+    "e2e": "yarn build && start-server-and-test start http://localhost:3000 cypress",
+    "e2e:headless": "yarn build && start-server-and-test start http://localhost:3000 cypress:headless"
   },
   "dependencies": {
     "next": "^11.1.2",
@@ -17,7 +18,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
-    "cypress": "^8.3.1",
+    "cypress": "^9.1.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "eslint-config-prettier": "^8.3.0",
