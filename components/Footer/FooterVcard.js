@@ -1,18 +1,10 @@
-import Logo from 'components/Header/Logo';
 import formatTel from 'functions/formtatTel';
+import Image from 'next/image';
 import {
   AiOutlineFacebook,
   AiOutlineLinkedin,
   AiOutlineInstagram,
 } from 'react-icons/ai';
-
-const icons = {
-  linkedin: {
-    title: 'Linkedin',
-    link: 'https://linkedin.com',
-    icon: '',
-  },
-};
 
 const FooterVcard = (props) => {
   const { styles, siteInfo } = props;
@@ -23,13 +15,23 @@ const FooterVcard = (props) => {
     siteFacebook,
     siteInstagram,
     siteLinkedin,
+    siteLogo,
   } = siteInfo;
 
   return (
     <div className='vcard'>
-      <div className={styles.footer.vcard.logo}>
-        <Logo />
-      </div>
+      {siteLogo?.url && (
+        <div className={styles.footer.vcard.logo}>
+          <Image
+            src={siteLogo.url}
+            width={211}
+            height={60}
+            alt={'site logo'}
+            className={styles.logo}
+          />
+        </div>
+      )}
+
       <div id='vcard' className='vcard'>
         {siteAdress && (
           <div className='adr'>
