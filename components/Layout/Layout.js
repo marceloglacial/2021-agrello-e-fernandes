@@ -4,8 +4,16 @@ import Head from 'next/head';
 
 const Layout = (props) => {
   const { title, children, siteInfo } = props;
-  const { siteName, siteDescription, siteKeywords, siteLogo, siteFavicon } =
-    siteInfo;
+  const {
+    siteName,
+    siteDescription,
+    siteKeywords,
+    siteLogo,
+    siteSocialImage,
+    siteFavicon,
+  } = siteInfo;
+
+  const siteImage = siteSocialImage || siteLogo || '';
 
   const siteTitle = title
     ? ` ${title} - ${siteName}`
@@ -20,8 +28,8 @@ const Layout = (props) => {
         <meta name='keywords' content={siteKeywords} />
         <meta property='og:title' content={siteTitle} />
         <meta property='og:description' content={siteDescription} />
-        <meta property='og:image' content={siteLogo?.formats.small.url} />
-        <link rel='apple-touch-icon' href={siteLogo?.formats.small.url} />
+        <meta property='og:image' content={siteImage?.formats.small.url} />
+        <link rel='apple-touch-icon' href={siteImage?.formats.small.url} />
         <link rel='icon' type='image/png' href={siteFavicon.url}></link>
       </Head>
       <Header {...props} />

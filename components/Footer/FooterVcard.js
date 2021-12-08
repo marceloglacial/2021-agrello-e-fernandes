@@ -1,4 +1,3 @@
-import Logo from 'components/Header/Logo';
 import formatTel from 'functions/formtatTel';
 import {
   AiOutlineFacebook,
@@ -27,9 +26,7 @@ const FooterVcard = (props) => {
 
   return (
     <div className='vcard'>
-      <div className={styles.footer.vcard.logo}>
-        <Logo />
-      </div>
+      <div className={styles.footer.vcard.logo}>Logo</div>
       <div id='vcard' className='vcard'>
         {siteAdress && (
           <div className='adr'>
