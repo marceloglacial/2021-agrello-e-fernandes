@@ -14,3 +14,6 @@ jobs:
           build: npm run build
           start: npm start
           headless: true
+        env:
+          NEXT_PUBLIC_MY_HEROKU_URL: ${{ secrets.NEXT_PUBLIC_MY_HEROKU_URL }}
+          NEXT_PUBLIC_FORM_KEY: ${{ secrets.NEXT_PUBLIC_FORM_KEY }}
