@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import HeaderNav from './HeaderNav';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = (props) => {
   const { siteLogo, siteName } = props.siteInfo;
@@ -43,16 +44,20 @@ const Header = (props) => {
     <header
       className={`${styles.default} ${styles.mobile} ${styles.desktop} ${styles.scroll}`}
     >
-      {siteLogo?.url && (
-        <Image
-          src={siteLogo.url}
-          width={211}
-          height={60}
-          alt={'site logo'}
-          className={styles.logo}
-        />
-      )}
-      <h1 className='hidden'>{siteName}</h1>
+      <Link href={`/`}>
+        <a className='link--no-decoration'>
+          {siteLogo?.url && (
+            <Image
+              src={siteLogo.url}
+              width={211}
+              height={60}
+              alt={'site logo'}
+              className={styles.logo}
+            />
+          )}
+          <h1 className='hidden'>{siteName}</h1>
+        </a>
+      </Link>
       <HeaderNav {...props} />
     </header>
   );
