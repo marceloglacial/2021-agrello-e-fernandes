@@ -1,5 +1,7 @@
 name: Cypress Tests
-on: [push]
+on:
+  release:
+    types: [published]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
