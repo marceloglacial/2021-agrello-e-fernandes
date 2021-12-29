@@ -42,6 +42,9 @@
 }
 
 @layer components {
+  .link--no-decoration:hover:after {
+    display: none;
+  }
   .bottom-decoration {
     @apply relative;
   }
